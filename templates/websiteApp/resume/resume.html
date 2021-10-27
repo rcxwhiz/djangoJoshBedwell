@@ -1,0 +1,221 @@
+{% extends 'websiteApp/common/base.html' %}
+
+{% load static %}
+{% block bootstrap5_extra_head %}
+  {{ block.super }}
+  <link href="{% static 'page/css/websiteApp/resume/resume.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block title %}Josh Bedwell - Resume{% endblock %}
+
+{% block nav_items %}
+  <li class="nav-item">
+  <a href="https://www.joshbedwell.com" class="nav-link">Home</a>
+  </li>
+  <li class="nav-item">
+  <a href="https://www.joshbedwell.com/projects" class="nav-link">Projects</a>
+  </li>
+  <li class="nav-item">
+  <a href="https://www.joshbedwell.com/coursework" class="nav-link">Course Work</a>
+  </li>
+  <li class="nav-item">
+  <a href="#" class="nav-link active" aria-current="page">Resume</a>
+  </li>
+{% endblock %}
+
+{% block content %}
+  <div class="p-3">
+  <h1>Resume</h1>
+  <p class="fs-5 col-md-8">
+    I'm a self-driven student with success in research and teaching, currently pursing a bachelor's degree in Computer
+    Science. Proficient in several programming languages and many development workflows. Detail-oriented and experienced
+    in mobile and web applications, scientific computing, and data structures & algorithms.
+  </p>
+  </div>
+
+  <div class="row align-items-md-stretch gy-3">
+  <div class="col-md-4">
+    <div class="h-100 p-4 text-white bg-dark rounded-3">
+      <h2>Contact</h2>
+      <br>
+      <p><span class="fw-bold">Address:</span> Orem, UT 84058</p>
+      <p><span class="fw-bold">Phone:</span> <a href="tel:+15128659936" class="text-reset">(512) 983-0736</a></p>
+      <p><span class="fw-bold">Email:</span> <a href="mailto:joshbedwell01@gmail.com" class="text-reset">joshbedwell01@gmail.com</a></p>
+    </div>
+  </div>
+  <div class="col-md-8">
+    <div class="h-100 p-4 bg-light border rounded-3">
+      <h2>Education</h2>
+      <div class="table-responsive">
+        <table class="table table-borderless">
+          <tbody>
+          <tr>
+            <td class="workDates">
+              <strong>May 2023<br>August 2021</strong>
+            </td>
+            <td>
+              <h3>Utah Valley University</h3>
+              <h5>2023 - Bachelor's of Science: Computer Science</h5>
+              <h5>2021 - Programmer Certificate</h5>
+              <p><em>Orem, UT</em><br>Major GPA: 4.00</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="workDates">
+              <strong>August 2021<br>August 2016</strong>
+            </td>
+            <td>
+              <h3>Brigham Young University</h3>
+              <p><em>Provo, UT</em><br>Major GPA: 3.30</p>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  </div>
+  <div class="h-100 p-4 mt-3 text-white bg-dark rounded-3">
+    <h2>Skills</h2>
+      <div class="table-responsive">
+        <table class="table table-dark table-borderless">
+          <tbody>
+          <tr>
+            <td>Amazon Web Services integration</td>
+            <td>API design</td>
+            <td>Database programming</td>
+          </tr>
+          <tr>
+            <td>Testing and maintenance</td>
+            <td>Bug resolution</td>
+            <td>Coding guidelines</td>
+          </tr>
+          <tr>
+            <td>Mobile app design</td>
+            <td>Application documentation</td>
+            <td>Object-oriented programming</td>
+          </tr>
+          <tr>
+            <td>Software development lifecycle</td>
+            <td>Web development</td>
+            <td>Version control</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+  </div>
+  <div class="h-100 p-4 mt-3 bg-light border rounded-3">
+  <h2>Work History</h2>
+  <div class="table-responsive px-5">
+    <table class="table table-borderless">
+      <tbody>
+      <tr>
+        <td class="workDates">
+          <strong>August 2021<br>April 2021</strong>
+        </td>
+        <td>
+          <h3>Intern</h3>
+          <h5>BYU Social Technology and Privacy Lab</h5>
+          <p class="workDatesMobile">Apr 2021 - Aug 2021</p>
+          <ul>
+            <li>
+              Processed large scale data harvested from public APIs
+            </li>
+            <li>
+              Used language analysis models to characterize data and draw statistically significant conclusions from
+              data
+            </li>
+            <li>
+              Used relational databases and code optimization to tackle large processor constrained tasks
+            </li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td class="workDates">
+          <strong>August 2021<br>January 2021</strong>
+        </td>
+        <td>
+          <h3>Research Assistant</h3>
+          <h5>BYU Chemical Engineering</h5>
+          <ul>
+            <li>
+              Refactored and rewrote scientific libraries written in C++
+            </li>
+            <li>
+              Contributed to performance sensitive chemical simulations by writing algorithms and templated data
+              structures
+            </li>
+            <li>
+              Setup testing system for codebase using Google Test
+            </li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td class="workDates">
+          <strong>December 2020<br>August 2019</strong>
+        </td>
+        <td>
+          <h3>Teacher's Assistant</h3>
+          <h5>BYU Computer Science</h5>
+          <ul>
+            <li>
+              Worked with students one on one in courses including: introductory programming, data structures, and
+              discrete structures with class sizes of hundreds of students
+            </li>
+            <li>
+              Graded student code with custom built tools in centralized servers
+            </li>
+            <li>
+              Taught detailed use of classes, memory, data structures and algorithms in C++
+            </li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td class="workDates">
+          <strong>December 2020<br>January 2019</strong>
+        </td>
+        <td>
+          <h3>Teacher's Assistant</h3>
+          <h5>BYU Chemical Engineering</h5>
+          <ul>
+            <li>
+              Worked with students one on one in computational tools courses with classes of 30-40 students
+            </li>
+            <li>
+              Graded student work manually and automatically with personally designed tools
+            </li>
+            <li>
+              Taught details of program flow, IO, scientific computing and data analysis in Python
+            </li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td class="workDates">
+          <strong>October 2018<br>April 2018</strong>
+        </td>
+        <td>
+          <h3>Support Analyst</h3>
+          <h5>BYU Office of Information Technology</h5>
+          <ul>
+            <li>
+              Provided technical support to campus students and faculty for over 100 products and services in person as
+              well as by email and phone
+            </li>
+            <li>
+              Contributed to internal knowledge base
+            </li>
+            <li>
+              Worked with internet service providers and campus engineers to resolve various network issues
+            </li>
+          </ul>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  </div>
+{% endblock %}

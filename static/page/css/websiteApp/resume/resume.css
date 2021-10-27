@@ -1,0 +1,18 @@
+@media only screen and (max-width: 768px) {
+    .workDates {
+        display: none;
+    }
+
+    .workDatesMobile {
+        display: block;
+    }
+}
+
+.workDates {
+    white-space: nowrap;
+}
+
+.workDatesMobile {
+    display: none;
+    font-style: italic;
+}
