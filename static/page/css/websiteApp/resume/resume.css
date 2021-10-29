@@ -1,18 +1,21 @@
-@media only screen and (max-width: 768px) {
-    .workDates {
-        display: none;
-    }
+.contact {
+    font-size: 1.3rem;
+}
 
-    .workDatesMobile {
-        display: block;
-    }
+.mobileJobHistory {
+    display: none;
 }
 
 .workDates {
     white-space: nowrap;
 }
 
-.workDatesMobile {
-    display: none;
-    font-style: italic;
+@media only screen and (max-width: 768px) {
+    .desktopJobHistory {
+        display: none;
+    }
+
+    .mobileJobHistory {
+        display: block;
+    }
 }
