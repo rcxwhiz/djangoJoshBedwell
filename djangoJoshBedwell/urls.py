@@ -18,6 +18,7 @@ from django.urls import path
 
 from websiteApp.views import (
 	Index,
+	Projects,
 	CourseWork,
 	Resume,
 )
@@ -25,6 +26,7 @@ from websiteApp.views import (
 urlpatterns = [
 	path('admin/', admin.site.urls),
 	path('', Index.as_view(), name='index'),
+	path('projects/', Projects.as_view(), name='projects'),
 	path('coursework/', CourseWork.as_view(), name='coursework'),
 	path('resume/', Resume.as_view(), name='resume'),
 ]

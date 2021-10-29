@@ -38,9 +38,11 @@
     <div class="h-100 p-4 text-white bg-dark rounded-3 contact">
       <h2>Contact</h2>
       <br>
-      <p><span class="fw-bold">Address:</span> Orem, UT 84058</p>
+      <div class="contactInfo">
+        <p><span class="fw-bold">Address:</span> Orem, UT 84058</p>
       <p><span class="fw-bold">Phone:</span> <a href="tel:+15128659936" class="text-reset">(512) 983-0736</a></p>
       <p><span class="fw-bold">Email:</span> <a href="mailto:joshbedwell01@gmail.com" class="text-reset">joshbedwell01@gmail.com</a></p>
+      </div>
     </div>
   </div>
   <div class="col-md-8">
@@ -109,164 +111,37 @@
   <div class="table-responsive px-5 desktopJobHistory">
     <table class="table table-borderless">
       <tbody>
-      <tr>
+      {% for job in jobs %}
+        <tr>
         <td class="workDates">
-          <strong>August 2021<br>April 2021</strong>
+          <strong>{{ job.end_date }}<br>{{ job.start_date }}</strong>
         </td>
         <td>
-          <h3>Intern</h3>
-          <h5>BYU Social Technology and Privacy Lab</h5>
+          <h3>{{ job.title }}</h3>
+          <h5>{{ job.work_place }}</h5>
           <ul>
-            <li>
-              Processed large scale data harvested from public APIs
-            </li>
-            <li>
-              Used language analysis models to characterize data and draw statistically significant conclusions from
-              data
-            </li>
-            <li>
-              Used relational databases and code optimization to tackle large processor constrained tasks
-            </li>
+            {% for bullet in job.bullets %}
+              <li>{{ bullet }}</li>
+            {% endfor %}
           </ul>
         </td>
-      </tr>
-      <tr>
-        <td class="workDates">
-          <strong>August 2021<br>January 2021</strong>
-        </td>
-        <td>
-          <h3>Research Assistant</h3>
-          <h5>BYU Chemical Engineering</h5>
-          <ul>
-            <li>
-              Refactored and rewrote scientific libraries written in C++
-            </li>
-            <li>
-              Contributed to performance sensitive chemical simulations by writing algorithms and templated data
-              structures
-            </li>
-            <li>
-              Setup testing system for codebase using Google Test
-            </li>
-          </ul>
-        </td>
-      </tr>
-      <tr>
-        <td class="workDates">
-          <strong>December 2020<br>August 2019</strong>
-        </td>
-        <td>
-          <h3>Teacher's Assistant</h3>
-          <h5>BYU Computer Science</h5>
-          <ul>
-            <li>
-              Worked with students one on one in courses including: introductory programming, data structures, and
-              discrete structures with class sizes of hundreds of students
-            </li>
-            <li>
-              Graded student code with custom built tools in centralized servers
-            </li>
-            <li>
-              Taught detailed use of classes, memory, data structures and algorithms in C++
-            </li>
-          </ul>
-        </td>
-      </tr>
-      <tr>
-        <td class="workDates">
-          <strong>December 2020<br>January 2019</strong>
-        </td>
-        <td>
-          <h3>Teacher's Assistant</h3>
-          <h5>BYU Chemical Engineering</h5>
-          <ul>
-            <li>
-              Worked with students one on one in computational tools courses with classes of 30-40 students
-            </li>
-            <li>
-              Graded student work manually and automatically with personally designed tools
-            </li>
-            <li>
-              Taught details of program flow, IO, scientific computing and data analysis in Python
-            </li>
-          </ul>
-        </td>
-      </tr>
-      <tr>
-        <td class="workDates">
-          <strong>October 2018<br>April 2018</strong>
-        </td>
-        <td>
-          <h3>Support Analyst</h3>
-          <h5>BYU Office of Information Technology</h5>
-          <ul>
-            <li>
-              Provided technical support to campus students and faculty for over 100 products and services in person as
-              well as by email and phone
-            </li>
-            <li>
-              Contributed to internal knowledge base
-            </li>
-            <li>
-              Worked with internet service providers and campus engineers to resolve various network issues
-            </li>
-          </ul>
-        </td>
-      </tr>
+        </tr>
+      {% endfor %}
       </tbody>
     </table>
   </div>
   <div class="mobileJobHistory mt-3">
-  <div>
-    <h3>Intern</h3>
-    <h5>BYU Social Technology and Privacy Lab</h5>
-    <p><em>Apr 2021 - Aug 2021</em></p>
-    <ul>
-      <li>Processed large scale data harvested from public APIs</li>
-      <li>Used language analysis models to characterize data and draw statistically significant conclusions from data</li>
-      <li>Used relational databases and code optimization to tackle large processor constrained tasks</li>
-    </ul>
-  </div>
-    <div>
-    <h3>Research Assistant</h3>
-    <h5>BYU Chemical Engineering</h5>
-    <p><em>Jan 2021 - Aug 2021</em></p>
-    <ul>
-      <li>Refactored and rewrote scientific libraries written in C++</li>
-      <li>Contributed to performance sensitive chemical simulations by writing algorithms and templated data structures</li>
-      <li>Setup testing system for codebase using Google Test</li>
-    </ul>
-  </div>
-    <div>
-    <h3>Teacher's Assistant</h3>
-    <h5>BYU Computer Science</h5>
-    <p><em>Aug 2019 - Dec 2020</em></p>
-    <ul>
-      <li>Worked with students one on one in courses including: introductory programming, data structures, and discrete structures with class sizes of hundreds of students</li>
-      <li>Graded student code with custom built tools in centralized servers</li>
-      <li>Taught detailed use of classes, memory, data structures and algorithms in C++</li>
-    </ul>
-  </div>
-    <div>
-    <h3>Teacher's Assistant</h3>
-    <h5>BYU Chemical Engineering</h5>
-    <p><em>Jan 2019 - Dec 2020</em></p>
-    <ul>
-      <li>Worked with students one on one in computational tools courses with classes of 30-40 students</li>
-      <li>Graded student work manually and automatically with personally designed tools</li>
-      <li>Taught details of program flow, IO, scientific computing and data analysis in Python</li>
-    </ul>
-  </div>
-    <div>
-    <h3>Support Analyst</h3>
-    <h5>BYU Office of Information Technology</h5>
-    <p><em>Apr 2018 - Oct 2018</em></p>
-    <ul>
-      <li>Provided technical support to campus students and faculty for over 100 products and services in person as well as by email and phone</li>
-      <li>Contributed to internal knowledge base</li>
-      <li>Worked with internet service providers and campus engineers to resolve various network issues</li>
-    </ul>
-  </div>
-  </div>
+  {% for job in jobs %}
+      <div>
+      <h3>{{ job.title }}</h3>
+      <h5>{{ job.work_place }}</h5>
+      <p><em>{{ job.start_date }} - {{ job.end_date }}</em></p>
+      <ul>
+      {% for bullet in job.bullets %}
+        <li>{{ bullet }}</li>
+      {% endfor %}
+      </ul>
+      </div>
+    {% endfor %}
   </div>
 {% endblock %}

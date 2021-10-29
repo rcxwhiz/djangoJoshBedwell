@@ -1,0 +1,57 @@
+{% extends 'websiteApp/common/base.html' %}
+
+{% load static %}
+{% block bootstrap5_extra_head %}
+  {{ block.super }}
+  <link href="{% static 'page/css/websiteApp/projects/projects.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block title %}Josh Bedwell - Projects{% endblock %}
+
+{% block nav_items %}
+  <li class="nav-item">
+  <a href="https://www.joshbedwell.com" class="nav-link">Home</a>
+  </li>
+  <li class="nav-item">
+  <a href="#" class="nav-link active">Projects</a>
+  </li>
+  <li class="nav-item">
+  <a href="https://www.joshbedwell.com/coursework" class="nav-link">Course Work</a>
+  </li>
+  <li class="nav-item">
+  <a href="https://www.joshbedwell.com/resume" class="nav-link" aria-current="page">Resume</a>
+  </li>
+{% endblock %}
+
+{% block content %}
+  <div class="p-3">
+  <h1>Projects</h1>
+  <p class="fs-5 col-md-8">
+    Below are some personal projects I have created and some I made for school. Some projects for school or work only
+    have descriptions and not links to source code. Some projects have web based demos.
+  </p>
+  </div>
+  {% for project in projects %}
+    <div class="p-5 mb-4 bg-light rounded-3 border">
+    <div class="container-fluid">
+    <h2>{{ project.name }}</h2>
+    {% if project.language %}
+      <p class="col-md-8 fs-4"><em>{{ project.language }}</em></p>
+    {% endif %}
+    <p class="col-md-8 fs-4">{{ project.description }}</p>
+    <div class="d-flex">
+      {% if project.source_code_link %}
+      <div>
+      <a href="{{ project.source_code_link }}" class="btn btn-primary" type="button">Source Code</a>
+      </div>
+    {% endif %}
+    {% if project.demo_link %}
+      <div class="ms-2">
+      <a href="{{ project.demo_link }}" class="btn btn-primary" type="button">Demo</a>
+      </div>
+    {% endif %}
+    </div>
+    </div>
+    </div>
+  {% endfor %}
+{% endblock %}
