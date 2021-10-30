@@ -21,6 +21,7 @@ from websiteApp.views import (
 	Projects,
 	CourseWork,
 	Resume,
+	ColorPalette,
 )
 
 urlpatterns = [
@@ -29,4 +30,5 @@ urlpatterns = [
 	path('projects/', Projects.as_view(), name='projects'),
 	path('coursework/', CourseWork.as_view(), name='coursework'),
 	path('resume/', Resume.as_view(), name='resume'),
+	path('projects/colorpalette/', ColorPalette.as_view(), name='colorpalette'),
 ]

@@ -1,0 +1,81 @@
+{% extends 'websiteApp/common/base.html' %}
+
+{% load static %}
+{% block bootstrap5_extra_head %}
+  {{ block.super }}
+  <link href="{% static 'page/css/websiteApp/projects/projects.css' %}" rel="stylesheet">
+  <script src="{% static 'page/js/websiteApp/projects/colorpalette/formHandler.js' %}" defer></script>
+{% endblock %}
+
+{% block title %}Color Palette{% endblock %}
+
+{% block nav_items %}
+  <li class="nav-item">
+    <a href="https://www.joshbedwell.com" class="nav-link" aria-current="page">Home</a>
+  </li>
+  <li class="nav-item">
+    <a href="https://www.joshbedwell.com/projects" class="nav-link">Projects</a>
+  </li>
+  <li class="nav-item">
+    <a href="https://www.joshbedwell.com/coursework" class="nav-link">Course Work</a>
+  </li>
+  <li class="nav-item">
+    <a href="https://www.joshbedwell.com/resume" class="nav-link">Resume</a>
+  </li>
+{% endblock %}
+
+{% block content %}
+  <div class="p-5 mb-4 bg-light rounded-3 border">
+    <h1 class="display-5 fw-bold">Color Palette Generator</h1>
+    <p class="col-md-8 fs-4">
+      Upload an image to use to generate a color palette.
+    </p>
+    <p id="imagePlaceHolder" class="imagePlaceHolder p-5">Upload image</p>
+    <div id="imageDestination" class="col-md-12"></div>
+
+    <div>
+      <form id="form" method="post" name="imageForm" class="needs-validation" novalidate enctype="multipart/form-data">
+        {% csrf_token %}
+
+        <div class="row align-items-center">
+
+          <div class="col-auto">
+            <label for="imageUpload" class="form-label"></label>
+          </div>
+          <div class="col-auto">
+            <input type="file" id="imageUpload" name="image" accept=".jpg, .jpeg, .png" class="form-control" required>
+            <div class="invalid-feedback">Image required</div>
+          </div>
+
+          <div class="col-auto">
+            <label for="numColors" class="form-label"># Colors:</label>
+          </div>
+          <div class="col-auto">
+            <input type="number" id="numColors" name="num_colors" min="2" max="8" step="1" value="5" class="form-control">
+          </div>
+
+          <div class="col-auto">
+            <div class="form-check">
+              <input type="checkbox" class="form-check-input" id="whiten" name="whiten">
+              <label class="form-check-label" for="whiten">Whiten (can adjust colors)</label>
+            </div>
+
+            <div class="form-check">
+              <input type="checkbox" class="form-check-input" id="showText" name="show_text">
+              <label class="form-check-label" for="showText">Show color codes on image</label>
+            </div>
+
+            <div class="form-check">
+              <input type="checkbox" class="form-check-input" id="full" name="full_set">
+              <label class="form-check-label" for="full">Use full image pixel set (slower)</label>
+            </div>
+          </div>
+
+          <div class="col-auto">
+            <input type="submit" value="Generate" class="btn btn-primary">
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+{% endblock %}
