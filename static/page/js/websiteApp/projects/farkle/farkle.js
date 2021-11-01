@@ -446,7 +446,7 @@ const updateAdvise = () => {
     moveAdviseElement.innerHTML = bestScoreOption.moves.join(", ");
     moveAdviseElement.innerHTML += ` for ${bestScoreOption.score} points`;
     moveAdviseElement.innerHTML += `<br>Expected score for this turn: ${bestScoreOptionValue.toFixed(3)}`;
-    if (bestScoreOptionValue > bestScoreOption.score || (gettingOnBoardCheck.checked && currentScoreElement.value < 500)) {
+    if (bestScoreOptionValue > bestScoreOption.score || (gettingOnBoardCheck.checked && bestScoreOption.score < 500)) {
         moveAdviseElement.innerHTML += "<br>Keep rolling!";
         if (bestScoreOption.diceLeft === 6) {
             moveAdviseElement.innerHTML += " Hot dice!";
