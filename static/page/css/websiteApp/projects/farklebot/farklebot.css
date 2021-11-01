@@ -2,7 +2,7 @@
     width: 100%;
     display: grid;
     grid-template-columns: repeat(6, auto);
-    grid-gap: 2rem;
+    grid-gap: 6px;
 }
 
 .dice {
