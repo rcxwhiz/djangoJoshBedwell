@@ -22,6 +22,7 @@ from websiteApp.views import (
 	CourseWork,
 	Resume,
 	ColorPalette,
+	FarkleBot,
 )
 
 urlpatterns = [
@@ -31,4 +32,5 @@ urlpatterns = [
 	path('coursework/', CourseWork.as_view(), name='coursework'),
 	path('resume/', Resume.as_view(), name='resume'),
 	path('projects/colorpalette/', ColorPalette.as_view(), name='colorpalette'),
+	path('projects/farklebot/', FarkleBot.as_view(), name='farklebot'),
 ]

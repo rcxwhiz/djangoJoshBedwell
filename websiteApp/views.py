@@ -55,3 +55,7 @@ class ColorPalette(TemplateView):
 			return response
 		else:
 			return HttpResponse(status=500)
+
+
+class FarkleBot(TemplateView):
+	template_name = 'websiteApp/projects/farklebot/farklebot.html'

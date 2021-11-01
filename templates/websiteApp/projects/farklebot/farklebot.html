@@ -1,0 +1,158 @@
+{% extends 'websiteApp/common/base.html' %}
+
+{% load static %}
+{% block bootstrap5_extra_head %}
+  {{ block.super }}
+  <link href="{% static 'page/css/websiteApp/projects/projects.css' %}" rel="stylesheet">
+  <link href="{% static 'page/css/websiteApp/projects/farklebot/farklebot.css' %}" rel="stylesheet">
+  <script src="{% static 'page/js/websiteApp/projects/farkle/farkle.js' %}" defer></script>
+{% endblock %}
+
+{% block title %}Farkle Bot{% endblock %}
+
+{% block nav_items %}
+  <li class="nav-item">
+    <a href="https://www.joshbedwell.com" class="nav-link" aria-current="page">Home</a>
+  </li>
+  <li class="nav-item">
+    <a href="https://www.joshbedwell.com/projects" class="nav-link">Projects</a>
+  </li>
+  <li class="nav-item">
+    <a href="https://www.joshbedwell.com/coursework" class="nav-link">Course Work</a>
+  </li>
+  <li class="nav-item">
+    <a href="https://www.joshbedwell.com/resume" class="nav-link">Resume</a>
+  </li>
+{% endblock %}
+
+{% block content %}
+  <div class="p-5 mb-4 bg-light rounded-3 border">
+    <h1 class="display-5 fw-bold">Farkle Bot</h1>
+    <p class="col-md-8 fs-4">
+      A bot which advises the optimal moves in the dice game Farkle.
+    </p>
+    <p class="col-md-8 fs-4">
+      Click or right click dice to enter your roll. Uses Xs for dice set aside.
+    </p>
+    <div class="container p-4">
+      <div class="diceGroup">
+        <img src="{% static 'img/dice/dice-1.svg' %}" class="dice" alt="die" id="dice1">
+        <img src="{% static 'img/dice/dice-1.svg' %}" class="dice" alt="die" id="dice2">
+        <img src="{% static 'img/dice/dice-1.svg' %}" class="dice" alt="die" id="dice3">
+        <img src="{% static 'img/dice/dice-1.svg' %}" class="dice" alt="die" id="dice4">
+        <img src="{% static 'img/dice/dice-1.svg' %}" class="dice" alt="die" id="dice5">
+        <img src="{% static 'img/dice/dice-1.svg' %}" class="dice" alt="die" id="dice6">
+      </div>
+    </div>
+  <div class="d-inline-flex ms-3 align-items-center">
+    <label for="currentScore" class="form-label">Current score:</label>
+    <div>
+      <input type="number" value="0" min="0" step="50" id="currentScore" class="form-control ms-2">
+    </div>
+    <div class="form-check ms-5">
+      <label for="gettingOnBoard" class="form-check-label">I need to get on the board</label>
+      <input class="form-check-input" type="checkbox" id="gettingOnBoard">
+    </div>
+  </div>
+  <div class="my-5 mx-2">
+    <h3>Your best move is:</h3>
+    <p class="fs-4" id="moveAdvise">This is a farkle!</p>
+  </div>
+  <div>
+    <div class="accordion">
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="farkleRulesHeading">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#farkleRules" aria-expanded="false" aria-controls="farkleRules">
+            Farkle Rules
+          </button>
+        </h2>
+        <div id="farkleRules" class="accordion-collapse collapse" aria-labelledby="farkleRulesHeading">
+          <div class="accordion-body">
+            <p>
+              Farkle is a dice game of risk. You roll the dice and if you can score them you may remove those dice and
+              keep rolling or stop and keep your current score. If you cannot score on you roll, you have "farkled," and
+              you loose all points you gained that round. If you score all your dice you have "hot dice" and you get
+              them all back to keep rolling.
+            </p>
+            <p>
+              <strong>Scoring options:</strong>
+            </p>
+            <div class="row">
+              <p class="col-sm-4"><i class="bi bi-dice-1"></i> Ones = 100 pts</p>
+              <p class="col-sm-8"><i class="bi bi-dice-5"></i> Fives = 100 pts</p>
+              <p class="col-sm-4"><i class="bi bi-dice-1"></i> <i class="bi bi-dice-1"></i> <i class="bi bi-dice-1"></i> = 300 pts</p>
+              <p class="col-sm-4"><i class="bi bi-dice-2"></i> <i class="bi bi-dice-2"></i> <i class="bi bi-dice-2"></i> = 200 pts</p>
+              <p class="col-sm-4"><i class="bi bi-dice-3"></i> <i class="bi bi-dice-3"></i> <i class="bi bi-dice-3"></i> = 300 pts</p>
+              <p class="col-sm-4"><i class="bi bi-dice-4"></i> <i class="bi bi-dice-4"></i> <i class="bi bi-dice-4"></i> = 400 pts</p>
+              <p class="col-sm-4"><i class="bi bi-dice-5"></i> <i class="bi bi-dice-5"></i> <i class="bi bi-dice-5"></i> = 500 pts</p>
+              <p class="col-sm-4"><i class="bi bi-dice-6"></i> <i class="bi bi-dice-6"></i> <i class="bi bi-dice-6"></i> = 600 pts</p>
+              <p class="col-sm-4">4 of any number = 1,000 pts</p>
+              <p class="col-sm-4">5 of any number = 2,000 pts</p>
+              <p class="col-sm-4">6 of any number = 3,000 pts</p>
+              <p class="col-sm-4">1-6 straight = 1,500 pts</p>
+              <p class="col-sm-4">Three pairs = 1,500 pts</p>
+              <p class="col-sm-4">Four of any number with a pair = 1,500 pts</p>
+              <p class="col-sm-4">Two triplets = 2,500 pts</p>
+            </div>
+            <p>
+              You need to score at least 500 points on your first scoring turn and it is the last round of the game when
+              someone gets 10,000 points.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="farkleStrategyHeading">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#farkleStrategy" aria-expanded="false" aria-controls="farkleStrategy">
+            Farkle Strategy
+          </button>
+        </h2>
+        <div id="farkleStrategy" class="accordion-collapse collapse" aria-labelledby="farkleStrategyHeading">
+          <div class="accordion-body">
+            <p>
+              At its core Farkle is a game of risk (or greed) with only two inputs to its state: current score for the
+              round and the number of dice you can keep rolling. Having a higher score and more dice to roll are more
+              desirable. Using these two data points we can assign a value to each game state.
+            </p>
+            <p>
+              Ryan McKenna did this
+              <a href="http://www.ryanhmckenna.com/2018/07/optimal-strategy-for-farkle-dice.html" target="_blank">here</a>
+              using math and computers. He created a simple matrix to determine the value of any possible game state.
+            </p>
+            <p>
+              When I originally set out to create a Farkle AI, I wanted to use machine learning to create an AI that
+              could consistently out perform a novice human Farkle player. My most mature attempt was to create
+              equations based on Ryan's table and have a computer refine those equations until they were statistically
+              perfect. This was probably not the most efficient approach, but I decided to validate the automated
+              changes to the equation set by testing it against tens of thousands of Farkle games. The goal is not quite
+              necessarily to average the highest score per turn, it is to reach 10,000 points in the fewest turns
+              possible. This is why I tested by playing Farkle games instead of just playing thousands of turns.
+            </p>
+            <p>
+              My testing became very performance constrained. I stopped randomly determining each die in a roll, instead
+              I enumerated every possible roll and randomly chose one from that list. I put the tens of thousands of
+              games in a parallelized work queue so they could be executed simultaneously. I had to make many more
+              optimizations to get each game to play in a fraction of a second, including eliminating duplicate paths in
+              finding possible ways to score a turn and determining which path would produce the most valuable state.
+            </p>
+            <p>
+              In the end my algorithm was unable to make a significant improvement over Ryan's table. I take this as a
+              testament of his work and the simplicity of this game.
+            </p>
+            <p>
+              What I originally wanted to achieve was a Farkle AI that could beat a novice human player. I defined this
+              as my AI being able to beat a player more than 50% of the time who makes reasonable but suboptimal moves.
+              What I found was the standard deviation of how many turns it took the bot to hit 10,000 points was simply
+              too high to be able to definitively beat someone more than 50% of the time. Farkle is too much of a game
+              of luck. Now if the score to end the game was much higher, like 1,000,000 points, my AI would fair much
+              better against novice players since one lucky turn would be much less likely to win the whole game. This
+              is made completely irrelevant by the simplicity of the bot's algorithm. It can be imitated in only a few
+              turns since it is in summary, don't roll if your score is over 400 and you have less than 4 dice.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+{% endblock %}
