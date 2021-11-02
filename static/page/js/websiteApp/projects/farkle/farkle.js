@@ -156,7 +156,8 @@ const getOptionValue = (scoreOption) => {
         case 0:
             switch (scoreOption.diceLeft) {
                 case 6:
-                    return 548.858;
+                    // This is to make farkles most undesirable
+                    return 0;
             }
         case 50:
             switch (scoreOption.diceLeft) {
