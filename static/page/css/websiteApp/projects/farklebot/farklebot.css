@@ -1,11 +1,11 @@
 .diceGroup {
-    width: 100%;
-    display: grid;
-    grid-template-columns: repeat(6, auto);
-    grid-gap: 6px;
+    /*width: 100%;*/
+    /*display: grid;*/
+    /*grid-template-columns: repeat(6, auto);*/
+    /*grid-gap: 6px;*/
 }
 
 .dice {
-    width: 100%;
-    height: auto;
+    /*width: 100%;*/
+    /*height: auto;*/
 }
