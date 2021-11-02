@@ -154,11 +154,8 @@ const getAllScoreOptions = (roll, currentScore) => {
 const getOptionValue = (scoreOption) => {
     switch (scoreOption.score) {
         case 0:
-            switch (scoreOption.diceLeft) {
-                case 6:
-                    // This is to make farkles most undesirable
-                    return 0;
-            }
+            // This is to make farkles most undesirable
+            return 0;
         case 50:
             switch (scoreOption.diceLeft) {
                 case 5:
