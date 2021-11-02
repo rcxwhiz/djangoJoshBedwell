@@ -26,7 +26,7 @@
 {% endblock %}
 
 {% block content %}
-  <div class="container-lg pt-3 mb-4 bg-light rounded-3 border">
+  <div class="container-lg py-3 mb-4 bg-light rounded-3 border">
     <h1 class="display-5 fw-bold">Farkle Bot</h1>
     <p class="col-md-8 fs-4">
       A bot which advises the optimal moves in the dice game Farkle.
@@ -36,7 +36,7 @@
       score/roll situations.
     </p>
     <div class="mb-4">
-      <div class="diceGroup d-flex flex-wrap justify-content-center">
+      <div class="diceGroup d-flex flex-wrap justify-content-center" style="width: 98vw; position: relative; left: calc(-50vw + 50%);">
         <img src="{% static 'img/dice/dice-1.svg' %}" class="dice m-1" alt="die" id="dice1">
         <img src="{% static 'img/dice/dice-1.svg' %}" class="dice m-1" alt="die" id="dice2">
         <img src="{% static 'img/dice/dice-1.svg' %}" class="dice m-1" alt="die" id="dice3">
