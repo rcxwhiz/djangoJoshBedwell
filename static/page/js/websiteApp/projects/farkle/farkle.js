@@ -235,8 +235,10 @@ const updateAdvise = () => {
     for (let i = 0; i < 6; i++) {
         for (let j = 0; j < bestScoreOption.diceUsed[i]; j++) {
             for (const die of dice) {
-                if (die.value === i + 1 && die.element.src.endsWith(`dice-${die.value}.svg`))
+                if (die.value === i + 1 && die.element.src.endsWith(`dice-${die.value}.svg`)) {
                     die.element.src = `/static/img/dice/dice-${die.value}-green.svg`;
+                    break;
+                }
             }
         }
     }
