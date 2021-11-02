@@ -223,7 +223,7 @@ const updateAdvise = () => {
     if (bestScoreOptionValue > bestScoreOption.score || (gettingOnBoardCheck.checked && bestScoreOption.score < 500)) {
         moveAdviseElement.innerHTML += "<br>Keep rolling!";
         if (bestScoreOption.diceLeft === 6) {
-            moveAdviseElement.innerHTML += " Hot dice!";
+            moveAdviseElement.innerHTML += " <strong>Hot dice!</strong>";
         }
     }
     else {
