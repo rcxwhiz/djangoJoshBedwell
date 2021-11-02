@@ -152,261 +152,31 @@ const getAllScoreOptions = (roll, currentScore) => {
 }
 
 const getOptionValue = (scoreOption) => {
-    switch (scoreOption.score) {
-        case 0:
-            // This is to make farkles most undesirable
-            return 0;
-        case 50:
-            switch (scoreOption.diceLeft) {
-                case 5:
-                    return 363.834;
-            }
-        case 100:
-            switch (scoreOption.diceLeft) {
-                case 4:
-                    return 274.776;
-                case 5:
-                    return 399.911;
-            }
-        case 150:
-            switch (scoreOption.diceLeft) {
-                case 3:
-                    return 227.968;
-                case 4:
-                    return 307.673;
-            }
-        case 200:
-            switch (scoreOption.diceLeft) {
-                case 2:
-                    return 221.706;
-                case 3:
-                    return 257.584;
-                case 4:
-                    return 343.800;
-            }
-        case 250:
-            switch (scoreOption.diceLeft) {
-                case 1:
-                    return 274.669;
-                case 2:
-                    return 250;
-                case 3:
-                    return 293.400;
-            }
-        case 300:
-            switch (scoreOption.diceLeft) {
-                case 1:
-                case 2:
-                    return 300;
-                case 3:
-                    return 329.228;
-                case 6:
-                    return 802.000;
-            }
-        case 350:
-            switch (scoreOption.diceLeft) {
-                case 1:
-                case 2:
-                    return 350;
-                case 5:
-                    return 596.220;
-                case 6:
-                    return 846.014;
-            }
-        case 400:
-            switch (scoreOption.diceLeft) {
-                case 1:
-                case 2:
-                    return 400;
-                case 3:
-                    return 400.947;
-                case 4:
-                    return 498.2;
-                case 5:
-                    return 638.291;
-                case 6:
-                    return 890.036;
-            }
-        case 450:
-            switch (scoreOption.diceLeft) {
-                case 1:
-                case 2:
-                case 3:
-                    return 450;
-                case 4:
-                    return 540.176;
-                case 5:
-                    return 680.368;
-                case 6:
-                    return 934.065;
-            }
-        case 500:
-            switch (scoreOption.diceLeft) {
-                case 1:
-                case 2:
-                case 3:
-                    return 500;
-                case 4:
-                    return 582.157;
-                case 5:
-                    return 722.453;
-                case 6:
-                    return 978.099;
-            }
-        case 550:
-            switch (scoreOption.diceLeft) {
-                case 1:
-                case 2:
-                case 3:
-                    return 550;
-                case 4:
-                    return 624.144;
-                case 5:
-                    return 764.545;
-                case 6:
-                    return 1022.666;
-            }
-        case 600:
-            switch (scoreOption.diceLeft) {
-                case 1:
-                case 2:
-                case 3:
-                    return 600;
-                case 4:
-                    return 666.139;
-                case 5:
-                    return 806.642;
-                case 6:
-                    return 1067.891;
-            }
-        case 650:
-            switch (scoreOption.diceLeft) {
-                case 1:
-                case 2:
-                case 3:
-                    return 650;
-                case 4:
-                    return 708.139;
-                case 5:
-                    return 849.953;
-                case 6:
-                    return 1113.281;
-            }
-        case 700:
-            switch (scoreOption.diceLeft) {
-                case 1:
-                case 2:
-                case 3:
-                    return 700;
-                case 4:
-                    return 750.142;
-                case 5:
-                    return 893.894;
-                case 6:
-                    return 1158.674;
-            }
-        case 750:
-            switch (scoreOption.diceLeft) {
-                case 1:
-                case 2:
-                case 3:
-                    return 750;
-                case 4:
-                    return 792.147;
-                case 5:
-                    return 937.847;
-                case 6:
-                    return 1204.068;
-            }
-        case 800:
-            switch (scoreOption.diceLeft) {
-                case 1:
-                case 2:
-                case 3:
-                    return 800;
-                case 4:
-                    return 834.154;
-                case 5:
-                    return 981.801;
-                case 6:
-                    return 1249.464;
-            }
-        case 850:
-            switch (scoreOption.diceLeft) {
-                case 1:
-                case 2:
-                case 3:
-                    return 850;
-                case 4:
-                    return 876.162;
-                case 5:
-                    return 1025.756;
-                case 6:
-                    return 1295.174;
-            }
-        case 900:
-            switch (scoreOption.diceLeft) {
-                case 1:
-                case 2:
-                case 3:
-                    return 900;
-                case 4:
-                    return 918.17;
-                case 5:
-                    return 1069.711;
-                case 6:
-                    return 1341.411;
-            }
-        case 950:
-            switch (scoreOption.diceLeft) {
-                case 1:
-                case 2:
-                case 3:
-                    return 950;
-                case 4:
-                    return 960.178;
-                case 5:
-                    return 1114.429;
-                case 6:
-                    return 1387.917;
-            }
-        case 1000:
-            switch (scoreOption.diceLeft) {
-                case 1:
-                case 2:
-                case 3:
-                    return 1000;
-                case 4:
-                    return 1002.188;
-                case 5:
-                    return 1160.198;
-                case 6:
-                    return 1434.468;
-            }
-        case 1050:
-            switch (scoreOption.diceLeft) {
-                case 1:
-                case 2:
-                case 3:
-                case 4:
-                    return 1050;
-                case 5:
-                    return 1206.254;
-                case 6:
-                    return 1481.147;
-            }
-        default:
-            switch (scoreOption.diceLeft) {
-                case 1:
-                case 2:
-                case 3:
-                case 4:
-                    return scoreOption.score;
-                case 5:
-                    return scoreOption.score + 150;
-                case 6:
-                    return scoreOption.score + 420;
-            }
+    switch (scoreOption.diceLeft) {
+        case 1:
+            if (scoreOption.score < 300)
+                return 1.13361 * scoreOption.score - 3.353;
+            else
+                return scoreOption.score;
+        case 2:
+            if (scoreOption.score < 250)
+                return 1.16192 * scoreOption.score - 15.43057;
+            else
+                return scoreOption.score;
+        case 3:
+            if (scoreOption.score < 450)
+                return 0.69828 * scoreOption.score + 120.27386;
+            else
+                return scoreOption.score;
+        case 4:
+            if (scoreOption.score < 1050)
+                return 0.81633 * scoreOption.score + 180.15206;
+            else
+                return scoreOption.score;
+        case 5:
+            return 0.84692 * scoreOption.score + 305.43795;
+        case 6:
+            return 0.89449 * scoreOption.score + 534.98335;
     }
 }
 
@@ -425,10 +195,11 @@ const updateAdvise = () => {
     console.log(`Roll: ${roll}`);
 
     const scoreOptions = getAllScoreOptions(roll, parseInt(currentScoreElement.value));
+    scoreOptions.shift();
 
     console.log(`Found ${scoreOptions.length} score options`);
 
-    if (scoreOptions.length === 1) {
+    if (scoreOptions.length === 0) {
         moveAdviseElement.innerText = "This is a farkle!";
         return;
     }
