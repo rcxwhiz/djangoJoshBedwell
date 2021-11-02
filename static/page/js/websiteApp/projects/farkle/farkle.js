@@ -127,27 +127,29 @@ const canScore = (roll, scoreOption) => {
     return true;
 }
 
-const getScoreOptions = (options, roll, moves, score) => {
+const getScoreOptions = (options, roll, moves, score, diceUsed) => {
     let diceLeft = roll.reduce((acc, a) => {return acc + a;}, 0);
     if (diceLeft === 0)
         diceLeft = 6;
-    options.push({score: score, moves: moves, diceLeft: diceLeft});
+    options.push({score: score, moves: moves, diceLeft: diceLeft, diceUsed: diceUsed});
     for (const scoreOption of possibleScores) {
         if (canScore(roll, scoreOption)) {
             const newRoll = [...roll];
             const newMoves = [...moves];
             newMoves.push(scoreOption.msg);
+            const newDiceUsed = [...diceUsed];
             for (let i = 0; i < 6; i++) {
                 newRoll[i] -= scoreOption.dice[i];
+                newDiceUsed[i] += scoreOption.dice[i];
             }
-            getScoreOptions(options, newRoll, newMoves, score + scoreOption.score);
+            getScoreOptions(options, newRoll, newMoves, score + scoreOption.score, newDiceUsed);
         }
     }
 }
 
 const getAllScoreOptions = (roll, currentScore) => {
     const options = [];
-    getScoreOptions(options, roll, [], currentScore);
+    getScoreOptions(options, roll, [], currentScore, [0, 0, 0, 0, 0, 0]);
     return options;
 }
 
@@ -200,6 +202,8 @@ const updateAdvise = () => {
     console.log(`Found ${scoreOptions.length} score options`);
 
     if (scoreOptions.length === 0) {
+        for (const die of dice)
+            die.element.src = `/static/img/dice/dice-${die.value}-red.svg`;
         moveAdviseElement.innerText = "This is a farkle!";
         return;
     }
@@ -214,7 +218,7 @@ const updateAdvise = () => {
     }
     moveAdviseElement.innerHTML = "Keep "
     moveAdviseElement.innerHTML += bestScoreOption.moves.join(", ");
-    moveAdviseElement.innerHTML += ` for ${bestScoreOption.score} points`;
+    moveAdviseElement.innerHTML += ` for <strong>${bestScoreOption.score} points</strong>`;
     moveAdviseElement.innerHTML += `<br>Expected score for this turn: ${bestScoreOptionValue.toFixed(3)}`;
     if (bestScoreOptionValue > bestScoreOption.score || (gettingOnBoardCheck.checked && bestScoreOption.score < 500)) {
         moveAdviseElement.innerHTML += "<br>Keep rolling!";
@@ -224,6 +228,17 @@ const updateAdvise = () => {
     }
     else {
         moveAdviseElement.innerHTML += "<br>Stop rolling"
+    }
+    for (const die of dice)
+        die.element.src = `/static/img/dice/dice-${die.value}.svg`;
+    console.log(`Going to set these to green: ${bestScoreOption.diceUsed}`);
+    for (let i = 0; i < 6; i++) {
+        for (let j = 0; j < bestScoreOption.diceUsed[i]; j++) {
+            for (const die of dice) {
+                if (die.value === i + 1 && die.element.src.endsWith(`dice-${die.value}.svg`))
+                    die.element.src = `/static/img/dice/dice-${die.value}-green.svg`;
+            }
+        }
     }
 }
 
