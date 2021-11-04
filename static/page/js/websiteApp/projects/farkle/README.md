@@ -1,4 +1,4 @@
-#Farkle Bot
+# Farkle Bot
 
 This is a bot which advises you on the optimal strategy for the dice game Farkle. The game has two states: your score
 for the current turn, and the number of dice you have left to roll. These together create a value to the game state

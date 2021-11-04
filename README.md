@@ -1,4 +1,4 @@
-#My Personal Website
+# My Personal Website
 
 This repository contains my Django code for my website at [joshbedwell.com](joshbedwell.com). It also contains some of
 the personal project that are listed my website that have interactive demos. It is hosted on a
