@@ -30,7 +30,7 @@ Array.prototype.slice.call(forms)
                         imageDestination.appendChild(image);
                     }
                     else {
-                        imagePlaceHolder.innerHTML = `<strong style="color: red;">Error ${xhr.status} occurred generating image</strong>`;
+                        imagePlaceHolder.innerHTML = `<strong style="color: red;">Error ${xhr.status} occurred generating image - image was probably too big</strong>`;
                     }
                 }
                 let formData = new FormData(document.forms.namedItem("imageForm"));
