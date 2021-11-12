@@ -206,7 +206,7 @@ const updateAdvise = () => {
 
     console.log(`Roll: ${roll}`);
 
-    const scoreOptions = getAllScoreOptions(roll, parseInt(currentScoreElement.value));
+    const scoreOptions = getAllScoreOptions(roll, parseInt(currentScoreElement.innerText));
     scoreOptions.shift();
 
     console.log(`Found ${scoreOptions.length} score options`);
@@ -219,11 +219,16 @@ const updateAdvise = () => {
     }
     let bestScoreOption = scoreOptions[0];
     let bestScoreOptionValue = getOptionValue(bestScoreOption);
+
+    console.log(`First score option: ${bestScoreOption.diceUsed} value: ${bestScoreOptionValue}`);
+
     for (const option of scoreOptions) {
         if (getOptionValue(option) > bestScoreOptionValue)
         {
             bestScoreOption = option;
             bestScoreOptionValue = getOptionValue(bestScoreOption);
+
+            console.log(`New best score option: ${bestScoreOption.diceUsed} value: ${bestScoreOptionValue}`);
         }
     }
     moveAdviseElement.innerHTML = "Keep "
@@ -254,7 +259,18 @@ const updateAdvise = () => {
     }
 }
 
-currentScoreElement.addEventListener("change", updateAdvise);
 gettingOnBoardCheck.addEventListener("change", updateAdvise);
+
+document.getElementById("plusButton").addEventListener("click", () => {
+    currentScoreElement.innerText = String(parseInt(currentScoreElement.innerText) + 50);
+    updateAdvise();
+});
+
+document.getElementById("minusButton").addEventListener("click", () => {
+    if (parseInt(currentScoreElement.innerText) > 0) {
+        currentScoreElement.innerText = String(parseInt(currentScoreElement.innerText) - 50);
+        updateAdvise();
+    }
+});
 
 updateAdvise();
