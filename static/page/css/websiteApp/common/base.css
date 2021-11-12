@@ -11,3 +11,7 @@
     -webkit-user-select: none;
     -moz-user-select: none;
 }
+
+.noDoubleTapZoom {
+    touch-action: manipulation;
+}

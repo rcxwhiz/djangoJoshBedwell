@@ -35,7 +35,7 @@
       Click or right click dice to enter your roll. Uses Xs for dice set aside.
     </p>
     <div class="mb-4">
-      <div class="diceGroup d-flex flex-wrap justify-content-center noSelect">
+      <div class="noDoubleTapZoom d-flex flex-wrap justify-content-center noSelect">
         <img src="{% static 'img/dice/dice-1.svg' %}" class="dice m-1" alt="die" id="dice1">
         <img src="{% static 'img/dice/dice-1.svg' %}" class="dice m-1" alt="die" id="dice2">
         <img src="{% static 'img/dice/dice-1.svg' %}" class="dice m-1" alt="die" id="dice3">
@@ -44,7 +44,7 @@
         <img src="{% static 'img/dice/dice-1.svg' %}" class="dice m-1" alt="die" id="dice6">
       </div>
     </div>
-  <div class="d-inline-flex ms-3 align-items-center noSelect">
+  <div class="d-inline-flex ms-3 align-items-center noSelect noDoubleTapZoom">
     <span class="form-label">Current score:</span>
     <div class="rounded-start bg-dark text-white scoreButton" id="plusButton">+</div>
     <div class="border" id="currentScore">0</div>

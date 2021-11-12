@@ -1,7 +1,3 @@
-.diceGroup {
-    touch-action: manipulation;
-}
-
 .dice {
     width: 6rem;
     height: auto;
