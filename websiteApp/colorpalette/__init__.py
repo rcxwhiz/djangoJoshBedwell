@@ -6,28 +6,32 @@ from sklearn.cluster import KMeans
 from scipy import cluster
 
 
+pixel_type = (int, int, int)
+
+
 def get_hex_color(color):
 	return "#%02x%02x%02x" % color
 
 
-def get_luminosity(pixel):
+def get_luminosity(pixel: pixel_type) -> float:
 	return 0.5 * (max(pixel) + min(pixel))
 
 
-def get_saturation(pixel):
-	luminosity = get_luminosity(pixel)
+def get_saturation(pixel: pixel_type) -> float:
+	luminosity: float = get_luminosity(pixel)
 	if luminosity < 1:
 		return (max(pixel) - min(pixel)) / (1 - abs(2 * luminosity - 1))
 	else:
 		return 0
 
 
-def get_best_pixel(pixels):
+def get_best_pixel(pixels: [pixel_type]) -> pixel_type:
 	# TODO I think that to get the "right" colors I need to be looking at either the groups found or the whole image
 
-	METHOD = "MAX COLOR"
+	METHOD: str = "MAX COLOR"
 
-	best_pixel = pixels[0]
+	best_pixel: pixel_type = pixels[0]
+	pixel: pixel_type
 	for pixel in pixels:
 		if METHOD == "SATURATION":
 			if get_saturation(pixel) > get_saturation(best_pixel):
@@ -39,95 +43,104 @@ def get_best_pixel(pixels):
 	return best_pixel
 
 
-def get_centroids(source_file, num_colors, whiten, full):
-	pixel_data = list(Image.open(source_file).getdata())
+def get_centroids(source_file: str, num_colors: int, whiten: bool, full: bool) -> [pixel_type]:
+	pixel_data: [pixel_type] = list(Image.open(source_file).getdata())
 
 	if not full:
-		TARGET_POINTS = 600
+		TARGET_POINTS: int = 600
 		if len(pixel_data) > TARGET_POINTS:
-			clump_size = int(len(pixel_data) / TARGET_POINTS)
-			small_data = []
+			clump_size: int = int(len(pixel_data) / TARGET_POINTS)
+			small_data: [pixel_type] = []
+			i: int
 			for i in range(0, len(pixel_data), clump_size):
 				if i + clump_size < len(pixel_data):
-					offset = i + clump_size
+					offset: int = i + clump_size
 				else:
-					offset = len(pixel_data) - 1
-				clump = pixel_data[i:offset]
+					offset: int = len(pixel_data) - 1
+				clump: [pixel_type] = pixel_data[i:offset]
 				small_data.append(get_best_pixel(clump))
-		pixel_data = small_data
+			pixel_data = small_data
 
-	df = pd.DataFrame(pixel_data, columns=["red", "green", "blue"])
+	df: pd.DataFrame = pd.DataFrame(pixel_data, columns=["red", "green", "blue"])
 
 	if whiten:
 		df["std_red"] = cluster.vq.whiten(df["red"])
 		df["std_green"] = cluster.vq.whiten(df["green"])
 		df["std_blue"] = cluster.vq.whiten(df["blue"])
 
-	kmeans = KMeans(n_clusters=num_colors)
+	kmeans: KMeans = KMeans(n_clusters=num_colors)
 
 	if whiten:
 		kmeans.fit(df[["std_red", "std_green", "std_blue"]])
 	else:
 		kmeans.fit(df[["red", "green", "blue"]])
 
-	centroids = kmeans.cluster_centers_
-	centroids = list(centroids)
+	centroids: [pixel_type] = list(kmeans.cluster_centers_)
 
+	# TODO not sure what I was doing here
 	if whiten:
-		centroids = [tuple(i) for i in centroids]
+		centroids = [tuple(centroid) for centroid in centroids]
 	else:
-		centroids = [tuple(map(round, i)) for i in centroids]
+		centroids = [tuple(map(round, centroid)) for centroid in centroids]
 
 	if whiten:
+		red_dev: float
+		green_dev: float
+		blue_dev: float
 		red_dev, green_dev, blue_dev = df[["red", "green", "blue"]].std()
+		i: int
 		for i in range(len(centroids)):
 			centroids[i] = round(centroids[i][0] * red_dev), round(centroids[i][1] * green_dev), round(centroids[i][2] * blue_dev)
 
 	return centroids
 
 
-def get_footer(footer_width, footer_height, centroids, text):
-	VERTICAL_PADDING = 0
+def get_footer(footer_width: int, footer_height: int, centroids: [pixel_type], text: bool) -> Image:
+	VERTICAL_PADDING: int = 0
 
-	footer_img = Image.new("RGB", (footer_width, footer_height), (255, 255, 255))
-	tile_width = round(footer_width / (len(centroids) + 0.3) + 0.5)
-	spacing = round((footer_width - tile_width * len(centroids)) / (len(centroids) - 1) + tile_width)
-	tile_height = footer_height - 2 * VERTICAL_PADDING
+	footer_img: Image = Image.new("RGB", (footer_width, footer_height), (255, 255, 255))
+	tile_width: int = round(footer_width / (len(centroids) + 0.3) + 0.5)
+	spacing: int = round((footer_width - tile_width * len(centroids)) / (len(centroids) - 1) + tile_width)
+	tile_height: int = footer_height - 2 * VERTICAL_PADDING
 
-	font = ImageFont.truetype("static/fonts/Roboto-Light.ttf", round(footer_height / 5))
+	font: ImageFont = ImageFont.truetype("static/fonts/Roboto-Light.ttf", round(footer_height / 5))
 
+	i: int
+	color: pixel_type
 	for i, color in enumerate(centroids):
-		x_pos = i * spacing
-		y_pos = VERTICAL_PADDING
-		tile = Image.new("RGB", (tile_width, tile_height), color)
+		x_pos: int = i * spacing
+		y_pos: int = VERTICAL_PADDING
+		tile: Image = Image.new("RGB", (tile_width, tile_height), color)
 		footer_img.paste(tile, (x_pos, y_pos))
 
 		if text:
-			text_color = round(((sum(color) / len(color)) + 127) % 255)
-			draw = ImageDraw.Draw(footer_img)
+			text_color: int = round(((sum(color) / len(color)) + 127) % 255)
+			draw: ImageDraw = ImageDraw.Draw(footer_img)
 			draw.text((x_pos + 3, VERTICAL_PADDING), get_hex_color(color), (text_color,) * 3, font=font)
 
 	return footer_img
 
 
-def make_image(source_file, centroids, text):
-	source_img = Image.open(source_file)
+def make_image(source_file: str, centroids, text) -> bytes:
+	source_img: Image = Image.open(source_file)
+	source_width: int
+	source_height: int
 	source_width, source_height = source_img.size
-	out_height = round(source_height * 1.25)
+	out_height: int = round(source_height * 1.25)
 
-	out_img = Image.new("RGB", (source_width, out_height), (255, 255, 255))
+	out_img: Image = Image.new("RGB", (source_width, out_height), (255, 255, 255))
 	out_img.paste(source_img)
 
-	footer_img = get_footer(source_width, out_height - source_height, centroids, text)
+	footer_img: Image = get_footer(source_width, out_height - source_height, centroids, text)
 
 	out_img.paste(footer_img, (0, source_height))
 
-	buffered = BytesIO()
+	buffered: BytesIO = BytesIO()
 	out_img.save(buffered, format='png')
 	return base64.b64encode(buffered.getvalue())
 
 
-def post(source_file, num_colors, text, whiten, full):
-	num_colors = int(num_colors)
-	centroids = get_centroids(source_file, num_colors, whiten, full)
+def post(source_file: str, num_colors: str, text, whiten: bool, full: bool) -> bytes:
+	num_colors: int = int(num_colors)
+	centroids: [pixel_type] = get_centroids(source_file, num_colors, whiten, full)
 	return make_image(source_file, centroids, text)
