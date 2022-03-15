@@ -6,6 +6,7 @@ from django.db.models import QuerySet
 from django.http import HttpResponse
 from django.views.generic import TemplateView
 
+from websiteApp import models
 from websiteApp.models import Project, PreviousJob
 from websiteApp.forms import ColorPaletteForm
 
@@ -61,3 +62,17 @@ class ColorPalette(TemplateView):
 
 class FarkleBot(TemplateView):
 	template_name: str = 'websiteApp/projects/farklebot/farklebot.html'
+
+
+class Blog(TemplateView):
+	template_name: str = 'websiteApp/blog/blog.html'
+
+
+class BlogPost(TemplateView):
+	template_name: str = 'websiteApp/blog/post.html'
+
+	def get_context_data(self, **kwargs) -> Dict[str, Any]:
+		context: Dict[str, Any] = super().get_context_data(**kwargs)
+		post_url: str = kwargs['post']
+		context['post'] = models.BlogPost.objects.get(url=post_url)
+		return context

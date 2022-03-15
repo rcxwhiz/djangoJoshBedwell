@@ -23,6 +23,8 @@ from websiteApp.views import (
 	Resume,
 	ColorPalette,
 	FarkleBot,
+	Blog,
+	BlogPost,
 )
 
 urlpatterns = [
@@ -33,4 +35,6 @@ urlpatterns = [
 	path('resume/', Resume.as_view(), name='resume'),
 	path('projects/colorpalette/', ColorPalette.as_view(), name='colorpalette'),
 	path('projects/farklebot/', FarkleBot.as_view(), name='farklebot'),
+	path('blog/', Blog.as_view(), name='blog'),
+	path('blog/<str:post>/', BlogPost.as_view(), name='blogpost'),
 ]
