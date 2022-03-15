@@ -1,5 +1,4 @@
 from django.db import models
-from django.contrib.postgres.fields import ArrayField
 
 
 class Project(models.Model):
@@ -33,7 +32,7 @@ class BlogPost(models.Model):
 	edited_date: models.DateField = models.DateField()
 	edited: models.BooleanField = models.BooleanField()
 	published: models.BooleanField = models.BooleanField()
-	tags: ArrayField = ArrayField(models.CharField(max_length=200))
+	tags: models.TextField = models.TextField(blank=True)
 	content: models.TextField = models.TextField(blank=True)
 
 	def __str__(self) -> str:
