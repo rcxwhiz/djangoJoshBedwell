@@ -1,4 +1,4 @@
-from typing import Any
+from typing import Any, Dict
 
 from django import forms
 
@@ -19,8 +19,8 @@ class Index(TemplateView):
 class Projects(TemplateView):
 	template_name: str = 'websiteApp/projects/projects.html'
 
-	def get_context_data(self, **kwargs) -> dict[str, Any]:
-		context: dict[str, Any] = super().get_context_data(**kwargs)
+	def get_context_data(self, **kwargs) -> Dict[str, Any]:
+		context: Dict[str, Any] = super().get_context_data(**kwargs)
 		context['projects'] = Project.objects.order_by('order')
 		return context
 
@@ -32,8 +32,8 @@ class CourseWork(TemplateView):
 class Resume(TemplateView):
 	template_name: str = 'websiteApp/resume/resume.html'
 
-	def get_context_data(self, **kwargs) -> dict[str, Any]:
-		context: dict[str, Any] = super().get_context_data(**kwargs)
+	def get_context_data(self, **kwargs) -> Dict[str, Any]:
+		context: Dict[str, Any] = super().get_context_data(**kwargs)
 		context['jobs']: QuerySet[PreviousJob] = PreviousJob.objects.order_by('order')
 		job: PreviousJob
 		for job in context['jobs']:
@@ -44,8 +44,8 @@ class Resume(TemplateView):
 class ColorPalette(TemplateView):
 	template_name: str = 'websiteApp/projects/colorpalette/colorpalette.html'
 
-	def get_context_data(self, **kwargs) -> dict[str, Any]:
-		context: dict[str, Any] = super().get_context_data(**kwargs)
+	def get_context_data(self, **kwargs) -> Dict[str, Any]:
+		context: Dict[str, Any] = super().get_context_data(**kwargs)
 		context['form']: forms.Form = ColorPaletteForm()
 		return context
 
