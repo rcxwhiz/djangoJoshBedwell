@@ -1,0 +1,24 @@
+{% extends 'websiteApp/common/base.html' %}
+
+{% load static %}
+{% block bootstrap5_extra_head %}
+  {{ block.super }}
+  <link href="{% static 'page/css/websiteApp/blog/blog.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block title %}Josh Bedwell - Blog{% endblock %}
+
+{% block content %}
+  {% for post in posts %}
+    <div class="blogpost-listing">
+      <a href="https://www.joshbedwell.com/blog/{{ post.url }}" class="fill-div"></a>
+      <div class="blogpost-listing-title">{{ post.title }}</div>
+      <div class="blogpost-listing-date">{{ post.posted_date }}</div>
+      <div class="blogpost-listing-tags">Tags:
+        {% for tag in post.tags %}
+          <span class="blogpost-listing-tag">{{ tag }}</span>
+        {% endfor %}
+      </div>
+    </div>
+  {% endfor %}
+{% endblock %}

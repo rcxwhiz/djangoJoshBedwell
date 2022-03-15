@@ -14,4 +14,7 @@ guide and secured with Let's Encrypt using
 - Add blog page
 - Add pagination
 - Add a contact me that doesn't publicly expose my email
-- Use django env stuff for sensitive keys
+- Use django env stuff for sensitive keys and then commit settings.py
+- redo css with inheritance to not directly use any bootstrap classes (except for maybe basic ones)
+- try to make more blocks in the code or some more inheritable pages
+- standardize css class naming
