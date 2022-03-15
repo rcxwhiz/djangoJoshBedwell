@@ -1,0 +1,21 @@
+.mobileJobHistory {
+    display: none;
+}
+
+.workDates {
+    white-space: nowrap;
+}
+
+.contactInfo {
+    font-size: calc(0.5rem + .8vw);
+}
+
+@media only screen and (max-width: 768px) {
+    .desktopJobHistory {
+        display: none;
+    }
+
+    .mobileJobHistory {
+        display: block;
+    }
+}

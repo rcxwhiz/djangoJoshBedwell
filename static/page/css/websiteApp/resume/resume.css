@@ -1,21 +1,23 @@
 .mobileJobHistory {
-    display: none;
+  display: none;
 }
 
 .workDates {
-    white-space: nowrap;
+  white-space: nowrap;
 }
 
 .contactInfo {
-    font-size: calc(0.5rem + .8vw);
+  font-size: calc(0.5rem + 0.8vw);
 }
 
 @media only screen and (max-width: 768px) {
-    .desktopJobHistory {
-        display: none;
-    }
+  .desktopJobHistory {
+    display: none;
+  }
 
-    .mobileJobHistory {
-        display: block;
-    }
+  .mobileJobHistory {
+    display: block;
+  }
 }
+
+/*# sourceMappingURL=resume.css.map */

@@ -1,0 +1,19 @@
+.titleName {
+  margin-left: 10px;
+}
+
+.clickableDiv {
+  transform: rotate(0);
+}
+
+.noSelect {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+}
+
+.noDoubleTapZoom {
+  touch-action: manipulation;
+}
+
+/*# sourceMappingURL=common.css.map */
