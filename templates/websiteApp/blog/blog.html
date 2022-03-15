@@ -9,8 +9,8 @@
 {% block title %}Josh Bedwell - Blog{% endblock %}
 
 {% block content %}
+  <h1>Blog Posts</h1>
   {% for post in posts %}
-    <h1>Blog Posts</h1>
     <div class="blogpost-listing">
       <a href="https://www.joshbedwell.com/blog/{{ post.url }}" class="fill-div"></a>
       <div class="blogpost-listing-title">{{ post.title }}</div>
