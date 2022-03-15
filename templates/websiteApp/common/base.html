@@ -28,7 +28,20 @@
       <span class="display-4 titleName">Josh Bedwell</span>
     </a>
     <ul class="nav nav-pills justify-content-center">
-      {% block nav_items %}{% endblock %}
+      {% block nav_items %}
+      <li class="nav-item">
+        <a href="https://www.joshbedwell.com" class="nav-link active" aria-current="page">Home</a>
+      </li>
+      <li class="nav-item">
+        <a href="https://www.joshbedwell.com/projects" class="nav-link">Projects</a>
+      </li>
+      <li class="nav-item">
+        <a href="https://www.joshbedwell.com/coursework" class="nav-link">Course Work</a>
+      </li>
+      <li class="nav-item">
+        <a href="https://www.joshbedwell.com/resume" class="nav-link">Resume</a>
+      </li>
+      {% endblock %}
     </ul>
   </header>
 

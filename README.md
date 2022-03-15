@@ -12,7 +12,6 @@ guide and secured with Let's Encrypt using
 - Proof read
 - Link to linkedin
 - Add blog page
-- Add pagination 
+- Add pagination
 - Add a contact me that doesn't publicly expose my email
-- Add typing throughout app
 - Use django env stuff for sensitive keys
