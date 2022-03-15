@@ -35,7 +35,7 @@
       Click or right click dice to enter your roll. Uses Xs for dice set aside.
     </p>
     <div class="mb-4">
-      <div class="noDoubleTapZoom d-flex flex-wrap justify-content-center noSelect">
+      <div class="no-double-tap-zoom d-flex flex-wrap justify-content-center no-select">
         <img src="{% static 'img/dice/dice-1.svg' %}" class="dice m-1" alt="die" id="dice1">
         <img src="{% static 'img/dice/dice-1.svg' %}" class="dice m-1" alt="die" id="dice2">
         <img src="{% static 'img/dice/dice-1.svg' %}" class="dice m-1" alt="die" id="dice3">
@@ -44,11 +44,11 @@
         <img src="{% static 'img/dice/dice-1.svg' %}" class="dice m-1" alt="die" id="dice6">
       </div>
     </div>
-  <div class="d-inline-flex ms-3 align-items-center noSelect noDoubleTapZoom">
+  <div class="d-inline-flex ms-3 align-items-center no-select no-double-tap-zoom">
     <span class="form-label">Current score:</span>
-    <div class="rounded-start bg-dark text-white scoreButton" id="plusButton">+</div>
-    <div class="border" id="currentScore">0</div>
-    <div class="rounded-end bg-dark text-white scoreButton" id="minusButton">-</div>
+    <div class="rounded-start bg-dark text-white score-button" id="plus-button">+</div>
+    <div class="border" id="current-score">0</div>
+    <div class="rounded-end bg-dark text-white score-button" id="minus-button">-</div>
     <div class="form-check ms-3">
       <label for="gettingOnBoard" class="form-check-label">I need to get on the board</label>
       <input class="form-check-input" type="checkbox" id="gettingOnBoard">

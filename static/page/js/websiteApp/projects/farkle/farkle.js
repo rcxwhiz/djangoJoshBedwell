@@ -193,7 +193,7 @@ const getOptionValue = (scoreOption) => {
 }
 
 const moveAdviseElement = document.getElementById("moveAdvise");
-const currentScoreElement = document.getElementById("currentScore");
+const currentScoreElement = document.getElementById("current-score");
 const gettingOnBoardCheck = document.getElementById("gettingOnBoard");
 
 const updateAdvise = () => {
@@ -261,12 +261,12 @@ const updateAdvise = () => {
 
 gettingOnBoardCheck.addEventListener("change", updateAdvise);
 
-document.getElementById("plusButton").addEventListener("click", () => {
+document.getElementById("plus-button").addEventListener("click", () => {
     currentScoreElement.innerText = String(parseInt(currentScoreElement.innerText) + 50);
     updateAdvise();
 });
 
-document.getElementById("minusButton").addEventListener("click", () => {
+document.getElementById("minus-button").addEventListener("click", () => {
     if (parseInt(currentScoreElement.innerText) > 0) {
         currentScoreElement.innerText = String(parseInt(currentScoreElement.innerText) - 50);
         updateAdvise();

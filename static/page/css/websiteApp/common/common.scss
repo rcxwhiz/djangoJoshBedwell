@@ -1,4 +1,4 @@
-.titleName {
+.title-name {
   margin-left: 10px;
 }
 
@@ -6,16 +6,16 @@
 
 }
 
-.clickableDiv {
+.clickable-div {
   transform: rotate(0);
 }
 
-.noSelect {
+.no-select {
   user-select: none;
   -webkit-user-select: none;
   -moz-user-select: none;
 }
 
-.noDoubleTapZoom {
+.no-double-tap-zoom {
   touch-action: manipulation;
 }
