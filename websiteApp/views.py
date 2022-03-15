@@ -67,6 +67,11 @@ class FarkleBot(TemplateView):
 class Blog(TemplateView):
 	template_name: str = 'websiteApp/blog/blog.html'
 
+	def get_context_data(self, **kwargs) -> Dict[str, Any]:
+		context: Dict[str, Any] = super().get_context_data(**kwargs)
+		context['posts'] = models.BlogPost.objects.filter(published=True).order_by('posted_date')
+		return context
+
 
 class BlogPost(TemplateView):
 	template_name: str = 'websiteApp/blog/post.html'
