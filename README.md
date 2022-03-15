@@ -11,7 +11,6 @@ guide and secured with Let's Encrypt using
 ### TODO
 - Proof read
 - Link to linkedin
-- Add blog page
 - Add pagination
 - Add a contact me that doesn't publicly expose my email
 - redo css with inheritance to not directly use any bootstrap classes (except for maybe basic ones)

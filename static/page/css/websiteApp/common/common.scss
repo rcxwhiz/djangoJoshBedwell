@@ -2,8 +2,11 @@
   margin-left: 10px;
 }
 
-.fill-div {
-
+a.fill-div {
+  display: block;
+  height: 100%;
+  width: 100%;
+  text-decoration: none;
 }
 
 .clickable-div {
