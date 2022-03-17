@@ -13,13 +13,13 @@
   </p>
   </div>
   {% for project in projects %}
-    <div class="p-4 mb-4 bg-light rounded-3 border">
+    <div class="project-container">
     <div class="container-fluid">
     <h2>{{ project.name }}</h2>
     {% if project.language %}
-      <p class="col-md-8 fs-4"><em>{{ project.language }}</em></p>
+      <p class="project-component"><em>{{ project.language }}</em></p>
     {% endif %}
-    <p class="col-md-8 fs-4">{{ project.description }}</p>
+    <p class="project-component">{{ project.description }}</p>
     <div class="d-flex">
       {% if project.source_code_link %}
       <div>

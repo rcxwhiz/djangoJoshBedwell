@@ -3,7 +3,6 @@
 {% load static %}
 {% block bootstrap5_extra_head %}
   {{ block.super }}
-  <link href="{% static 'page/css/websiteApp/projects/farklebot/farklebot.min.css' %}" rel="stylesheet">
   <script src="{% static 'page/js/websiteApp/projects/farkle/farkle.js' %}" defer></script>
 {% endblock %}
 
@@ -11,28 +10,28 @@
 
 {% block content %}
   <div class="container-lg py-3 mb-4 bg-light rounded-3 border">
-    <h1 class="display-5 fw-bold">Farkle Bot</h1>
-    <p class="col-md-8 fs-4">
+    <h1 class="project-display">Farkle Bot</h1>
+    <p class="project-component">
       A bot which advises the optimal moves in the dice game Farkle.
     </p>
-    <p class="col-md-8 fs-4">
+    <p class="project-component">
       Click or right click dice to enter your roll. Uses Xs for dice set aside.
     </p>
     <div class="mb-4">
-      <div class="no-double-tap-zoom d-flex flex-wrap justify-content-center no-select">
-        <img src="{% static 'img/dice/dice-1.svg' %}" class="dice m-1" alt="die" id="dice1">
-        <img src="{% static 'img/dice/dice-1.svg' %}" class="dice m-1" alt="die" id="dice2">
-        <img src="{% static 'img/dice/dice-1.svg' %}" class="dice m-1" alt="die" id="dice3">
-        <img src="{% static 'img/dice/dice-1.svg' %}" class="dice m-1" alt="die" id="dice4">
-        <img src="{% static 'img/dice/dice-1.svg' %}" class="dice m-1" alt="die" id="dice5">
-        <img src="{% static 'img/dice/dice-1.svg' %}" class="dice m-1" alt="die" id="dice6">
+      <div class="dice-container">
+        <img src="{% static 'img/dice/dice-1.svg' %}" class="dice" alt="die" id="dice1">
+        <img src="{% static 'img/dice/dice-1.svg' %}" class="dice" alt="die" id="dice2">
+        <img src="{% static 'img/dice/dice-1.svg' %}" class="dice" alt="die" id="dice3">
+        <img src="{% static 'img/dice/dice-1.svg' %}" class="dice" alt="die" id="dice4">
+        <img src="{% static 'img/dice/dice-1.svg' %}" class="dice" alt="die" id="dice5">
+        <img src="{% static 'img/dice/dice-1.svg' %}" class="dice" alt="die" id="dice6">
       </div>
     </div>
-  <div class="d-inline-flex ms-3 align-items-center no-select no-double-tap-zoom">
+  <div class="dice-form">
     <span class="form-label">Current score:</span>
-    <div class="rounded-start bg-dark text-white score-button" id="plus-button">+</div>
+    <div class="rounded-start score-button" id="plus-button">+</div>
     <div class="border" id="current-score">0</div>
-    <div class="rounded-end bg-dark text-white score-button" id="minus-button">-</div>
+    <div class="rounded-end score-button" id="minus-button">-</div>
     <div class="form-check ms-3">
       <label for="gettingOnBoard" class="form-check-label">I need to get on the board</label>
       <input class="form-check-input" type="checkbox" id="gettingOnBoard">

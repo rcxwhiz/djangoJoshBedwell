@@ -74,6 +74,10 @@ p.heading-paragraph {
   @extend .col-md-8;
 }
 
+// index stuff
+
+
+
 // blog stuff
 
 .blogpost-listing {
@@ -114,4 +118,67 @@ p.heading-paragraph {
 
 .blogpost-content {
 
+}
+
+// projects stuff
+
+.project-container {
+  @extend .p-4;
+  @extend .mb-4;
+  @extend .bg-light;
+  @extend .rounded-3;
+  @extend .border;
+}
+
+.project-display {
+  @extend .display-5;
+  @extend .fw-bold;
+}
+
+.project-component {
+  @extend .col-md-8;
+  @extend .fs-4;
+}
+
+// project - farklebot
+
+.dice-container {
+  @extend .no-double-tap-zoom;
+  @extend .d-flex;
+  @extend .flex-wrap;
+  @extend .justify-content-center;
+  @extend .no-select;
+}
+
+.dice {
+  @extend .m-1;
+  width: 6rem;
+  height: auto;
+}
+
+.dice-form {
+  @extend .d-inline-flex;
+  @extend .ms-3;
+  @extend .align-items-center;
+  @extend .no-select;
+  @extend .no-double-tap-zoom;
+}
+
+.score-button {
+  @extend .bg-dark;
+  @extend .text-white;
+  padding: 0.5rem;
+  cursor: pointer;
+}
+
+#plus-button {
+  margin-left: 1rem;
+}
+
+#current-score {
+  padding: 0.5rem;
+}
+
+#minus-button {
+  margin-right: 1rem;
 }

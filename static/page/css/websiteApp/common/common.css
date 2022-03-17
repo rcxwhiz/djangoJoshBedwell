@@ -525,13 +525,13 @@ progress {
   }
 }
 
-.display-5 {
+.display-5, .project-display {
   font-size: calc(1.425rem + 2.1vw);
   font-weight: 300;
   line-height: 1.2;
 }
 @media (min-width: 1200px) {
-  .display-5 {
+  .display-5, .project-display {
     font-size: 3rem;
   }
 }
@@ -1173,7 +1173,7 @@ progress {
     width: 58.33333333%;
   }
 
-  .col-md-8, p.heading-paragraph {
+  .col-md-8, .project-component, p.heading-paragraph {
     flex: 0 0 auto;
     width: 66.66666667%;
   }
@@ -6578,11 +6578,11 @@ textarea.form-control-lg {
   display: table-cell !important;
 }
 
-.d-flex, footer, .home-link-area, header {
+.d-flex, .dice-container, footer, .home-link-area, header {
   display: flex !important;
 }
 
-.d-inline-flex {
+.d-inline-flex, .dice-form {
   display: inline-flex !important;
 }
 
@@ -6686,7 +6686,7 @@ textarea.form-control-lg {
   transform: translateY(-50%) !important;
 }
 
-.border {
+.border, .project-container {
   border: 1px solid #dee2e6 !important;
 }
 
@@ -6882,7 +6882,7 @@ textarea.form-control-lg {
   flex-shrink: 1 !important;
 }
 
-.flex-wrap, header {
+.flex-wrap, .dice-container, header {
   flex-wrap: wrap !important;
 }
 
@@ -6926,7 +6926,7 @@ textarea.form-control-lg {
   justify-content: flex-end !important;
 }
 
-.justify-content-center, .nav-items, header {
+.justify-content-center, .dice-container, .nav-items, header {
   justify-content: center !important;
 }
 
@@ -6950,7 +6950,7 @@ textarea.form-control-lg {
   align-items: flex-end !important;
 }
 
-.align-items-center, .home-link-area {
+.align-items-center, .dice-form, .home-link-area {
   align-items: center !important;
 }
 
@@ -7046,7 +7046,7 @@ textarea.form-control-lg {
   margin: 0 !important;
 }
 
-.m-1 {
+.m-1, .dice {
   margin: 0.25rem !important;
 }
 
@@ -7212,7 +7212,7 @@ textarea.form-control-lg {
   margin-bottom: 1rem !important;
 }
 
-.mb-4, header {
+.mb-4, .project-container, header {
   margin-bottom: 1.5rem !important;
 }
 
@@ -7236,7 +7236,7 @@ textarea.form-control-lg {
   margin-left: 0.5rem !important;
 }
 
-.ms-3 {
+.ms-3, .dice-form {
   margin-left: 1rem !important;
 }
 
@@ -7268,7 +7268,7 @@ textarea.form-control-lg {
   padding: 1rem !important;
 }
 
-.p-4 {
+.p-4, .project-container {
   padding: 1.5rem !important;
 }
 
@@ -7448,7 +7448,7 @@ textarea.form-control-lg {
   font-size: calc(1.3rem + 0.6vw) !important;
 }
 
-.fs-4 {
+.fs-4, .project-component {
   font-size: calc(1.275rem + 0.3vw) !important;
 }
 
@@ -7480,7 +7480,7 @@ textarea.form-control-lg {
   font-weight: 400 !important;
 }
 
-.fw-bold {
+.fw-bold, .project-display {
   font-weight: 700 !important;
 }
 
@@ -7600,7 +7600,7 @@ textarea.form-control-lg {
   color: rgba(var(--bs-black-rgb), var(--bs-text-opacity)) !important;
 }
 
-.text-white {
+.text-white, .score-button {
   --bs-text-opacity: 1;
   color: rgba(var(--bs-white-rgb), var(--bs-text-opacity)) !important;
 }
@@ -7676,12 +7676,12 @@ textarea.form-control-lg {
   background-color: rgba(var(--bs-danger-rgb), var(--bs-bg-opacity)) !important;
 }
 
-.bg-light {
+.bg-light, .project-container {
   --bs-bg-opacity: 1;
   background-color: rgba(var(--bs-light-rgb), var(--bs-bg-opacity)) !important;
 }
 
-.bg-dark {
+.bg-dark, .score-button {
   --bs-bg-opacity: 1;
   background-color: rgba(var(--bs-dark-rgb), var(--bs-bg-opacity)) !important;
 }
@@ -7766,7 +7766,7 @@ textarea.form-control-lg {
   border-radius: 0.25rem !important;
 }
 
-.rounded-3 {
+.rounded-3, .project-container {
   border-radius: 0.3rem !important;
 }
 
@@ -11074,7 +11074,7 @@ textarea.form-control-lg {
     font-size: 1.75rem !important;
   }
 
-  .fs-4 {
+  .fs-4, .project-component {
     font-size: 1.5rem !important;
   }
 }
@@ -11123,18 +11123,40 @@ textarea.form-control-lg {
   transform: rotate(0);
 }
 
-.no-select {
+.no-select, .dice-form, .dice-container {
   user-select: none;
   -webkit-user-select: none;
   -moz-user-select: none;
 }
 
-.no-double-tap-zoom {
+.no-double-tap-zoom, .dice-form, .dice-container {
   touch-action: manipulation;
 }
 
 .title-name {
   margin-left: 10px;
+}
+
+.dice {
+  width: 6rem;
+  height: auto;
+}
+
+.score-button {
+  padding: 0.5rem;
+  cursor: pointer;
+}
+
+#plus-button {
+  margin-left: 1rem;
+}
+
+#current-score {
+  padding: 0.5rem;
+}
+
+#minus-button {
+  margin-right: 1rem;
 }
 
 /*# sourceMappingURL=common.css.map */

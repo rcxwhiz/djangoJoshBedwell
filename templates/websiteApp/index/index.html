@@ -1,17 +1,13 @@
 {% extends 'websiteApp/common/base.html' %}
 
 {% load static %}
-{% block bootstrap5_extra_head %}
-  {{ block.super }}
-  <link href="{% static 'page/css/websiteApp/index/index.css' %}" rel="stylesheet">
-{% endblock %}
 
 {% block title %}Josh Bedwell{% endblock %}
 
 {% block content %}
   <div class="p-5 mb-4 bg-light rounded-3 border">
   <div class="container-fluid py-5">
-    <h1 class="display-5 fw-bold">
+    <h1 class="project-display">
       <i class="bi bi-file-earmark-code"></i>
       Projects
     </h1>

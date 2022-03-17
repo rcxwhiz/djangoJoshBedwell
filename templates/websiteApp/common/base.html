@@ -3,8 +3,9 @@
 {# Load the tag library #}
 {% load django_bootstrap5 %}
 
-{# Load the css and javascript #}
-{% bootstrap_css %}
+{# css will load even though it doesn't even need to #}
+
+{# Load the javascript #}
 {% bootstrap_javascript %}
 
 {# Display django.contrip.messages as Bootstrap alerts #}

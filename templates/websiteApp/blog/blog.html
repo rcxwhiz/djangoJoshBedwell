@@ -5,7 +5,14 @@
 {% block title %}Josh Bedwell - Blog{% endblock %}
 
 {% block content %}
-  <h1>Blog Posts</h1>
+  <div class="heading-paragraph">
+    <h1>Blog Posts</h1>
+  <p>
+    Here are posts to my blog on a variety of topics.
+  </p>
+  </div>
+
+  <div class="blog-posts">
   {% for post in posts %}
     <div class="blogpost-listing" onclick="window.location.href='/blog/{{ post.url }}';">
       <div class="blogpost-listing-title">{{ post.title }}</div>
@@ -17,4 +24,6 @@
       </div>
     </div>
   {% endfor %}
+  </div>
+
 {% endblock %}
