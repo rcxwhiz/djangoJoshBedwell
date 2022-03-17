@@ -7,7 +7,7 @@ from django.http import HttpResponse
 from django.views.generic import TemplateView
 
 from websiteApp import models
-from websiteApp.models import Project, PreviousJob
+from websiteApp.models import Project, PreviousJob, CourseTaken
 from websiteApp.forms import ColorPaletteForm
 
 from websiteApp import colorpalette
@@ -28,6 +28,14 @@ class Projects(TemplateView):
 
 class CourseWork(TemplateView):
     template_name: str = 'websiteApp/coursework/coursework.html'
+
+    def get_context_data(self, **kwargs) -> Dict[str, Any]:
+        context: Dict[str, Any] = super().get_context_data(**kwargs)
+        context['computerScienceCourses'] = CourseTaken.objects.filter(genre='cs').order_by('num')
+        context['mathCourses'] = CourseTaken.objects.filter(genre='math').order_by('num')
+        context['generalCourses'] = CourseTaken.objects.filter(genre='gen').order_by('num')
+        context['engineeringCourses'] = CourseTaken.objects.filter(genre='eng').order_by('num')
+        return context
 
 
 class Resume(TemplateView):
