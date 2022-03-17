@@ -13,5 +13,4 @@ guide and secured with Let's Encrypt using
 - Link to linkedin
 - Add pagination
 - Add a contact me that doesn't publicly expose my email
-- redo css with inheritance to not directly use any bootstrap classes (except for maybe basic ones)
 - try to make more blocks in the code or some more inheritable pages
