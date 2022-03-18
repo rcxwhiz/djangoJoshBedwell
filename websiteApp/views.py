@@ -12,6 +12,8 @@ from websiteApp.forms import ColorPaletteForm
 
 from websiteApp import colorpalette
 
+import html2text
+
 
 class Index(TemplateView):
     template_name: str = 'websiteApp/index/index.html'
@@ -79,6 +81,9 @@ class Blog(TemplateView):
     def get_context_data(self, **kwargs) -> Dict[str, Any]:
         context: Dict[str, Any] = super().get_context_data(**kwargs)
         context['posts'] = models.BlogPost.objects.filter(published=True).order_by('posted_date')
+        for post in context['posts']:
+            post.tags = post.tags.split(', ')
+            post.preview = html2text.html2text(post.content)
         return context
 
 
@@ -89,4 +94,5 @@ class BlogPost(TemplateView):
         context: Dict[str, Any] = super().get_context_data(**kwargs)
         post_url: str = kwargs['post']
         context['post'] = models.BlogPost.objects.get(url=post_url)
+        context['post'].tags = context['post'].tags.split(', ')
         return context

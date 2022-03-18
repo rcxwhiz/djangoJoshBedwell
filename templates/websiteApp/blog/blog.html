@@ -14,13 +14,18 @@
 
   <div class="blog-posts">
   {% for post in posts %}
-    <div class="blogpost-listing" onclick="window.location.href='/blog/{{ post.url }}';">
-      <div class="blogpost-listing-title">{{ post.title }}</div>
-      <div class="blogpost-listing-date">{{ post.posted_date }}</div>
-      <div class="blogpost-listing-tags">Tags:
+    <div class="blogpost-listing">
+    <div>
+      <a class="text-dark" href="/blog/{{ post.url }}"><h1 class="blogpost-listing-title">{{ post.title }}</h1></a>
+      <h5 class="blogpost-listing-date">{{ post.posted_date }}</h5>
+      <div class="blogpost-tags">
         {% for tag in post.tags %}
-          <span class="blogpost-listing-tag">{{ tag }}</span>
+          <span class="blogpost-tag">{{ tag }}</span>
         {% endfor %}
+      </div>
+    </div>
+      <div class="blogpost-listing-preview">
+        {{ post.preview }}
       </div>
     </div>
   {% endfor %}

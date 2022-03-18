@@ -81,43 +81,49 @@ p.heading-paragraph {
 // blog stuff
 
 .blogpost-listing {
-
+  @extend .project-container;
+  @extend .d-flex;
+  @extend .flex-row;
 }
 
 .blogpost-listing-title {
-
 }
 
 .blogpost-listing-date {
-
+  font-style: italic;
 }
 
-.blogpost-listing-tags {
-
+.blogpost-listing-preview {
+  @extend .text-muted;
+  @extend .py-3;
+  @extend .px-5;
 }
 
-.blogpost-listing-tag {
+.blogpost-tags {
+  @extend .mb-2;
+  @extend .mt-3;
+}
 
+.blogpost-tag {
+  @extend .bg-body;
+  @extend .p-2;
+  @extend .my-2;
+  @extend .me-2;
+  @extend .rounded-2;
+  @extend .border;
 }
 
 .blogpost-title {
-
+  @extend .project-display;
 }
 
 .blogpost-date {
 
 }
 
-.blogpost-tags {
-
-}
-
-.blogpost-tag {
-
-}
-
 .blogpost-content {
-
+  @extend .mt-4;
+  @extend .px-1;
 }
 
 // projects stuff

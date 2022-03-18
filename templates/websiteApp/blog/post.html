@@ -6,7 +6,7 @@
 
 {% block content %}
   <div class="blogpost-title">{{ post.title }}</div>
-  <div class="blogpost-date">{{ post.posted_date }}{% if post.edited %}{{ post.edited_date }}{% endif %}</div>
+  <div class="blogpost-date">Posted: {{ post.posted_date }}{% if post.edited %} Edited: {{ post.edited_date }}{% endif %}</div>
   <div class="blogpost-tags">
     {% for tag in post.tags %}
       <span class="blogpost-tag">{{ tag }}</span>

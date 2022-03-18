@@ -525,13 +525,13 @@ progress {
   }
 }
 
-.display-5, .project-display {
+.display-5, .project-display, .blogpost-title {
   font-size: calc(1.425rem + 2.1vw);
   font-weight: 300;
   line-height: 1.2;
 }
 @media (min-width: 1200px) {
-  .display-5, .project-display {
+  .display-5, .project-display, .blogpost-title {
     font-size: 3rem;
   }
 }
@@ -6578,7 +6578,7 @@ textarea.form-control-lg {
   display: table-cell !important;
 }
 
-.d-flex, .dice-container, footer, .home-link-area, header {
+.d-flex, .dice-container, .blogpost-listing, footer, .home-link-area, header {
   display: flex !important;
 }
 
@@ -6686,7 +6686,7 @@ textarea.form-control-lg {
   transform: translateY(-50%) !important;
 }
 
-.border, .project-container {
+.border, .project-container, .blogpost-listing, .blogpost-tag {
   border: 1px solid #dee2e6 !important;
 }
 
@@ -6850,7 +6850,7 @@ textarea.form-control-lg {
   flex: 1 1 auto !important;
 }
 
-.flex-row {
+.flex-row, .blogpost-listing {
   flex-direction: row !important;
 }
 
@@ -7115,7 +7115,7 @@ textarea.form-control-lg {
   margin-bottom: 0.25rem !important;
 }
 
-.my-2 {
+.my-2, .blogpost-tag {
   margin-top: 0.5rem !important;
   margin-bottom: 0.5rem !important;
 }
@@ -7152,11 +7152,11 @@ textarea.form-control-lg {
   margin-top: 0.5rem !important;
 }
 
-.mt-3 {
+.mt-3, .blogpost-tags {
   margin-top: 1rem !important;
 }
 
-.mt-4, footer {
+.mt-4, .blogpost-content, footer {
   margin-top: 1.5rem !important;
 }
 
@@ -7176,7 +7176,7 @@ textarea.form-control-lg {
   margin-right: 0.25rem !important;
 }
 
-.me-2 {
+.me-2, .blogpost-tag {
   margin-right: 0.5rem !important;
 }
 
@@ -7204,7 +7204,7 @@ textarea.form-control-lg {
   margin-bottom: 0.25rem !important;
 }
 
-.mb-2 {
+.mb-2, .blogpost-tags {
   margin-bottom: 0.5rem !important;
 }
 
@@ -7212,7 +7212,7 @@ textarea.form-control-lg {
   margin-bottom: 1rem !important;
 }
 
-.mb-4, .project-container, header {
+.mb-4, .project-container, .blogpost-listing, header {
   margin-bottom: 1.5rem !important;
 }
 
@@ -7260,7 +7260,7 @@ textarea.form-control-lg {
   padding: 0.25rem !important;
 }
 
-.p-2 {
+.p-2, .blogpost-tag {
   padding: 0.5rem !important;
 }
 
@@ -7268,7 +7268,7 @@ textarea.form-control-lg {
   padding: 1rem !important;
 }
 
-.p-4, .project-container {
+.p-4, .project-container, .blogpost-listing {
   padding: 1.5rem !important;
 }
 
@@ -7281,7 +7281,7 @@ textarea.form-control-lg {
   padding-left: 0 !important;
 }
 
-.px-1 {
+.px-1, .blogpost-content {
   padding-right: 0.25rem !important;
   padding-left: 0.25rem !important;
 }
@@ -7301,7 +7301,7 @@ textarea.form-control-lg {
   padding-left: 1.5rem !important;
 }
 
-.px-5 {
+.px-5, .blogpost-listing-preview {
   padding-right: 3rem !important;
   padding-left: 3rem !important;
 }
@@ -7321,7 +7321,7 @@ textarea.form-control-lg {
   padding-bottom: 0.5rem !important;
 }
 
-.py-3, header {
+.py-3, .blogpost-listing-preview, header {
   padding-top: 1rem !important;
   padding-bottom: 1rem !important;
 }
@@ -7480,7 +7480,7 @@ textarea.form-control-lg {
   font-weight: 400 !important;
 }
 
-.fw-bold, .project-display {
+.fw-bold, .project-display, .blogpost-title {
   font-weight: 700 !important;
 }
 
@@ -7610,7 +7610,7 @@ textarea.form-control-lg {
   color: rgba(var(--bs-body-color-rgb), var(--bs-text-opacity)) !important;
 }
 
-.text-muted, footer {
+.text-muted, .blogpost-listing-preview, footer {
   --bs-text-opacity: 1;
   color: #6c757d !important;
 }
@@ -7676,7 +7676,7 @@ textarea.form-control-lg {
   background-color: rgba(var(--bs-danger-rgb), var(--bs-bg-opacity)) !important;
 }
 
-.bg-light, .project-container {
+.bg-light, .project-container, .blogpost-listing {
   --bs-bg-opacity: 1;
   background-color: rgba(var(--bs-light-rgb), var(--bs-bg-opacity)) !important;
 }
@@ -7696,7 +7696,7 @@ textarea.form-control-lg {
   background-color: rgba(var(--bs-white-rgb), var(--bs-bg-opacity)) !important;
 }
 
-.bg-body {
+.bg-body, .blogpost-tag {
   --bs-bg-opacity: 1;
   background-color: rgba(var(--bs-body-bg-rgb), var(--bs-bg-opacity)) !important;
 }
@@ -7762,11 +7762,11 @@ textarea.form-control-lg {
   border-radius: 0.2rem !important;
 }
 
-.rounded-2 {
+.rounded-2, .blogpost-tag {
   border-radius: 0.25rem !important;
 }
 
-.rounded-3, .project-container {
+.rounded-3, .project-container, .blogpost-listing {
   border-radius: 0.3rem !important;
 }
 
@@ -11135,6 +11135,10 @@ textarea.form-control-lg {
 
 .title-name {
   margin-left: 10px;
+}
+
+.blogpost-listing-date {
+  font-style: italic;
 }
 
 .dice {
