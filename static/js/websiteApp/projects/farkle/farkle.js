@@ -20,6 +20,10 @@ for (const die of dice) {
     });
 }
 
+// inputs: need to get on board, score for turn, dice left, total score previous, score of highest competitor?
+// outputs: value of a scoring choice
+// fitness: how many players it beat if in competition, how many turns it takes to win on average otherwise
+// worried that it won't be able to get over the beginning hump
 const possibleScores = [
     {dice: [1, 0, 0, 0, 0, 0], score: 100, msg: "a one"},
 
